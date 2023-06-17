@@ -18,8 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="wrapper d-flex justify-content-center p-3">
-      <div class="display w-50 p-5 rounded-4">
+    <div class="wrapper d-flex justify-content-center p-3 lh-sm">
+      <div class="display p-5 rounded-4">
+        <!-- <p class="clock position-relative top-0 left-0"></p> -->
         <form action="" class="my-form d-flex gap-2 pb-2">
           <input
             type="search"
@@ -43,48 +44,55 @@
           </button>
         </form>
         <hr />
-        <h4 class="city text-center fs-3 text-uppercase"><i>Lagos</i></h4>
-        <div class="current d-flex justify-content-between gap-4 py-3">
+        <h4 class="city text-center fs-3 text-uppercase">Lagos</h4>
+        <div class="current d-flex justify-content-between gap-5 py-3">
           <div class="">
             <p>Last updated: <span class="date"> </span></p>
-            <img src="" alt="" /><span class="degrees display-3"
-              >&nbsp;28°<a href="" class="text-decoration-none text-dark"></a
-            ></span>
+            <p>Feels like <span class="feels"></span></p>
             <p class="desc">Clouds</p>
+            <img src="" alt="" class="current_icon" /><span
+              class="degrees display-3"
+              >&nbsp;28°<a
+                href=""
+                class="unit fs-3 text-decoration-none text-dark fw-semibold"
+                >C</a
+              >
+            </span>
+            <a href="" class="fahrenheit mb-4">Fahrenheit?</a>
           </div>
-          <div class="">
+          <div class="pt-5 ps-5">
             <p>Wind: <span class="wind"></span></p>
             <p>Pressure: <span class="pressure"></span></p>
             <p>Humidity: <span class="humidity"></span></p>
           </div>
         </div>
-        <div class="future row gap-3 pt-3 text-center me-auto">
+        <!-- <div class="future row gap-3 pt-3 text-center me-auto">
           <div class="week_day col-sm rounded-4 pt-3">
             <p>Sun</p>
             <img src="" alt="" />
-            <p class="mt-3">32°C</p>
+            <p class="mt-3">32°</p>
           </div>
           <div class="week_day col-sm rounded-4 pt-3">
             <p>Mon</p>
             <img src="" alt="" />
-            <p class="mt-3">16°C</p>
+            <p class="mt-3">16°</p>
           </div>
           <div class="week_day col-sm rounded-4 pt-3">
             <p>Tues</p>
             <img src="" alt="" />
-            <p class="mt-3">27°C</p>
+            <p class="mt-3">27°</p>
           </div>
           <div class="week_day col-sm rounded-4 pt-3">
             <p>Wed</p>
             <img src="" alt="" />
-            <p class="mt-3">33°C</p>
+            <p class="mt-3">33°</p>
           </div>
           <div class="week_day col-sm rounded-4 pt-3">
             <p>Thurs</p>
             <img src="" alt="" />
-            <p class="mt-3">42°C</p>
+            <p class="mt-3">42°</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <script src="script.js"></script>

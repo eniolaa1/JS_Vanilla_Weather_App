@@ -29,6 +29,40 @@ input:focus {
 
 button {
   background-color: #0000003e !important;
+  border: #0000003e !important;
+}
+
+button:hover {
+  background-color: #444 !important;
+  border: #444 !important;
+}
+
+.fahrenheit {
+  color: #444;
+  text-decoration: none;
+  font-size: 14px !important;
+}
+
+.fahrenheit:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+.unit {
+  position: relative;
+  top: -22px;
+}
+
+.current_icon {
+  position: relative;
+  top: -15px;
+  width: 95px;
+  height: auto;
+  padding: 0;
+}
+
+.desc {
+  color: #0000003e;
 }
 
 .week_day {
@@ -38,4 +72,23 @@ button {
 
 .week_day:hover {
   box-shadow: 3px 3px 3px 3px #0000003e !important;
+}
+
+@media (max-width: 768px) {
+  .display {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .unit {
+    position: relative;
+    top: -8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .display {
+    width: 100%;
+    padding: 1rem;
+  }
 }
