@@ -35,7 +35,7 @@ const defaultInfo = () => {
   let currentIcon = document.querySelector(".current_icon");
 
   const displayInfo = (response) => {
-    let main = response.data.weather[0].main;
+    let main = response.data.weather[0].description;
     let temp = Math.round(response.data.main.temp);
     let humidityElement = response.data.main.humidity;
     let pressureElement = response.data.main.pressure;
@@ -89,7 +89,7 @@ form.addEventListener("submit", function (event) {
 
   const displayInfo = (response) => {
     let entry = response.data.name;
-    let main = response.data.weather[0].main;
+    let main = response.data.weather[0].description;
     let temp = Math.round(response.data.main.temp);
     let windElement = response.data.wind.speed;
     let pressureElement = response.data.main.pressure;
@@ -138,7 +138,7 @@ currentBtn.addEventListener("click", function () {
       let desc = document.querySelector(".desc");
       let deg = document.querySelector(".degrees");
       let entry = response.data.name;
-      let main = response.data.weather[0].main;
+      let main = response.data.weather[0].description;
       let temp = Math.round(response.data.main.temp);
       let windElement = response.data.wind.speed;
       let pressureElement = response.data.main.pressure;
