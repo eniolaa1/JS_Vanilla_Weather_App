@@ -74,6 +74,20 @@ button:hover {
   box-shadow: 3px 3px 3px 3px #0000003e !important;
 }
 
+footer {
+  text-align: center;
+}
+
+.github_link {
+  color: #444;
+  text-decoration: none;
+}
+
+.github_link:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .display {
     width: 90%;
