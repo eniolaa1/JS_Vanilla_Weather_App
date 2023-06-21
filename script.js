@@ -20,6 +20,23 @@ const updateTime = (timeStamp) => {
   return `${day}, ${time}${hours}`;
 };
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+const getCoordinates = (coordinates) => {
+  let apiKeys = "701f06352d61835bc4fc894e7b084629";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKeys}&units=metric`;
+  // let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKeys}&units=metric`;
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKeys}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+};
+
 //Get cuurent weather and show it on the screen using axios
 const defaultInfo = () => {
   let apiKeys = "701f06352d61835bc4fc894e7b084629";
@@ -62,12 +79,43 @@ const defaultInfo = () => {
       "src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
     );
+    getCoordinates(response.data.coord);
   };
 
   axios.get(`${apiUrl}${metricUnit}&appid=${apiKeys}`).then(displayInfo);
 };
 
 defaultInfo();
+
+const displayForecast = (response) => {
+  let forecast = response.data.list;
+  console.log(forecast);
+  let futureForecastElement = document.querySelector(".future");
+  let forecastHtml = '<div class="future row gap-3 pt-3 text-center me-auto">';
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHtml += `
+        <div class="future_col col-sm rounded-4 pt-3">
+          <p class="week_day">${formatDay(forecastDay.dt)}</p>
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" class="forecast_icon" />
+          <p class="mt-3">
+            <span class="high_temp">${Math.round(
+              forecastDay.main.temp_max
+            )}&deg;</span>
+            <span class="low_temp">${Math.round(
+              forecastDay.main.temp_min
+            )}&deg;</span>
+          </p>
+        </div>`;
+    }
+  });
+
+  forecastHtml += "</div>";
+  futureForecastElement.innerHTML = forecastHtml;
+};
 
 let form = document.querySelector(".my-form");
 form.addEventListener("submit", function (event) {
@@ -117,6 +165,7 @@ form.addEventListener("submit", function (event) {
       "src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    getCoordinates(response.data.coord);
   };
   axios
     .get(`${apiUrl}${cityName}${metricUnit}&appid=${apiKeys}`)
@@ -168,6 +217,7 @@ currentBtn.addEventListener("click", function () {
         "src",
         `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
+      getCoordinates(response.data.coord);
       updateTime();
     }
 
@@ -207,3 +257,5 @@ fahrenheitLink.addEventListener("click", function (event) {
     fahrenheitLink.innerText = "Fahrenheit?";
   }
 });
+
+displayForecast();

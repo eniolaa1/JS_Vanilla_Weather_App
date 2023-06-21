@@ -65,13 +65,27 @@ button:hover {
   color: #0000003e;
 }
 
-.week_day {
+.future_col {
   border: 1px solid#0000003e !important;
   cursor: pointer;
 }
 
-.week_day:hover {
+.future_col:hover {
   box-shadow: 3px 3px 3px 3px #0000003e !important;
+}
+
+.forecast_icon {
+  width: 45px !important;
+  height: auto;
+  padding: 0;
+}
+
+.high_temp {
+  color: #333;
+}
+
+.low_temp {
+  color: #666;
 }
 
 footer {
