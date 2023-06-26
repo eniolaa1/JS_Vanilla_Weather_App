@@ -198,7 +198,7 @@ currentBtn.addEventListener("click", function () {
       desc.innerText = main;
       main.style.color = "#666";
       main.style.fontWeight = "bold";
-      deg.innerText = `${temp}`;
+      deg.innerHTML = `${temp}°<a href='' class='unit fs-3 text-decoration-none text-dark fw-semibold'>C</a>`;
       humidity.style.color = "#666";
       humidity.style.fontSize = "14px";
       humidity.innerText = `${humidityElement} %`;
