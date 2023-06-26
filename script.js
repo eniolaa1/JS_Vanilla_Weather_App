@@ -186,6 +186,13 @@ currentBtn.addEventListener("click", function () {
       let city = document.querySelector(".city");
       let desc = document.querySelector(".desc");
       let deg = document.querySelector(".degrees");
+      let humidity = document.querySelector(".humidity");
+      let pressure = document.querySelector(".pressure");
+      let wind = document.querySelector(".wind");
+      let feels = document.querySelector(".feels");
+      let date = document.querySelector(".date");
+      let currentIcon = document.querySelector(".current-icon");
+
       let entry = response.data.name;
       let main = response.data.weather[0].description;
       let temp = Math.round(response.data.main.temp);
@@ -196,8 +203,8 @@ currentBtn.addEventListener("click", function () {
 
       city.innerText = entry;
       desc.innerText = main;
-      main.style.color = "#666";
-      main.style.fontWeight = "bold";
+      desc.style.color = "#666";
+      desc.style.fontWeight = "bold";
       deg.innerHTML = `${temp}°<a href='' class='unit fs-3 text-decoration-none text-dark fw-semibold'>C</a>`;
       humidity.style.color = "#666";
       humidity.style.fontSize = "14px";
@@ -215,7 +222,7 @@ currentBtn.addEventListener("click", function () {
       date.innerText = updateTime(response.data.dt * 1000);
       currentIcon.setAttribute(
         "src",
-        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
       );
       getCoordinates(response.data.coord);
       updateTime();
